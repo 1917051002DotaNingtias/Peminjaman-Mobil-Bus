@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="peminjamanmobil.FormPeminjamanController">
+   <children>
+      <MenuBar layoutY="1.0" prefHeight="25.0" prefWidth="788.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane layoutY="26.0" prefHeight="453.0" prefWidth="960.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Peminjaman Individu">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox prefHeight="427.0" prefWidth="966.0" style="-fx-background-color: a12345;">
+                           <children>
+                              <AnchorPane prefHeight="427.0" prefWidth="281.0" style="-fx-background-color: e63946;">
+                                 <children>
+                                    <Label layoutX="15.0" layoutY="14.0" prefHeight="46.0" prefWidth="251.0" text="Sistem Informasi Peminjaman BUS">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="tfidpeminjaman" disable="true" layoutX="20.0" layoutY="60.0" prefHeight="25.0" prefWidth="229.0" promptText="ID Peminjaman" />
+                                    <TextField fx:id="tfnoplat" layoutX="22.0" layoutY="138.0" prefHeight="25.0" prefWidth="227.0" promptText="No. Plat" />
+                                    <TextField fx:id="tfnama" layoutX="22.0" layoutY="173.0" prefHeight="25.0" prefWidth="227.0" promptText="Nama Peminjam" />
+                                    <TextField fx:id="tflama" layoutX="22.0" layoutY="214.0" prefHeight="25.0" prefWidth="227.0" promptText="Lama Peminjaman ( Hari )" />
+                                    <TextField fx:id="tfbiaya" layoutX="23.0" layoutY="253.0" prefHeight="25.0" prefWidth="226.0" promptText="Biaya Peminjaman" />
+                                    <TextField fx:id="tfpekerjaan" layoutX="23.0" layoutY="295.0" prefHeight="25.0" prefWidth="226.0" promptText="Pekerjaan Peminjam" />
+                                    <DatePicker fx:id="tftanggal" layoutX="20.0" layoutY="98.0" prefHeight="25.0" prefWidth="230.0" promptText="Tanggal Peminjaman" />
+                                    <Button fx:id="btnSimpanData" layoutX="126.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleAddAction" prefHeight="25.0" prefWidth="123.0" text="Simpan Data" />
+                                    <Label layoutX="30.0" layoutY="329.0" text="Status :" />
+                                    <Label fx:id="lblstatussimpan" layoutX="69.0" layoutY="329.0" />
+                                    <Button fx:id="btnClearForm" layoutX="125.0" layoutY="388.0" mnemonicParsing="false" onAction="#handleClearAction" prefHeight="25.0" prefWidth="126.0" text="Clear Form" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="427.0" prefWidth="654.0">
+                                 <children>
+                                    <VBox prefHeight="322.0" prefWidth="655.0" style="-fx-background-color: ;">
+                                       <children>
+                                          <AnchorPane prefHeight="322.0" prefWidth="680.0" style="-fx-background-color: d62828;">
+                                             <children>
+                                                <TableView fx:id="tblPeminjaman" layoutX="7.0" layoutY="8.0" prefHeight="305.0" prefWidth="666.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="colidpeminjaman" prefWidth="99.0" text="ID Peminjaman" />
+                                                    <TableColumn fx:id="coltanggal" prefWidth="98.0" text="Tanggal" />
+                                                      <TableColumn fx:id="colnoplat" prefWidth="75.0" text="No. Plat" />
+                                                      <TableColumn fx:id="colnama" prefWidth="124.0" text="Nama" />
+                                                      <TableColumn fx:id="collama" prefWidth="79.0" text="Lama ( Hari )" />
+                                                      <TableColumn fx:id="colbiaya" prefWidth="88.0" text="Biaya" />
+                                                      <TableColumn fx:id="colpekerjaan" prefWidth="95.0" text="Pekerjaan" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                    <Button fx:id="btnReloadData" layoutX="239.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleReloadAction" prefHeight="25.0" prefWidth="200.0" text="Reload Data" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Peminjaman Instansi">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox prefHeight="427.0" prefWidth="966.0" style="-fx-background-color: a12345;">
+                           <children>
+                              <AnchorPane prefHeight="427.0" prefWidth="281.0" style="-fx-background-color: e63946;">
+                                 <children>
+                                    <Label layoutX="15.0" layoutY="14.0" prefHeight="46.0" prefWidth="251.0" text="Sistem Informasi Peminjaman BUS">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="tfidpeminjaman1" disable="true" layoutX="20.0" layoutY="60.0" prefHeight="25.0" prefWidth="229.0" promptText="ID Peminjaman" />
+                                    <TextField fx:id="tfnoplat1" layoutX="22.0" layoutY="138.0" prefHeight="25.0" prefWidth="227.0" promptText="No. Plat" />
+                                    <TextField fx:id="tfnama1" layoutX="22.0" layoutY="173.0" prefHeight="25.0" prefWidth="227.0" promptText="Nama Peminjam" />
+                                    <TextField fx:id="tflama1" layoutX="22.0" layoutY="214.0" prefHeight="25.0" prefWidth="227.0" promptText=" Lama Peminjaman(Hari)" />
+                                    <TextField fx:id="tfbiaya1" layoutX="23.0" layoutY="253.0" prefHeight="25.0" prefWidth="226.0" promptText="Biaya Peminjaman" />
+                                    <TextField fx:id="tfbidanginstansi" layoutX="23.0" layoutY="295.0" prefHeight="25.0" prefWidth="226.0" promptText="Bidang Instansi" />
+                                    <DatePicker fx:id="tftanggal1" layoutX="20.0" layoutY="98.0" prefHeight="25.0" prefWidth="230.0" promptText="Tanggal Peminjaman" />
+                                    <Button fx:id="btnSimpanData1" layoutX="126.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleAdd1Action" prefHeight="25.0" prefWidth="123.0" text="Simpan Data" />
+                                    <Label layoutX="30.0" layoutY="329.0" text="Status :" />
+                                    <Label fx:id="lblstatussimpan1" layoutX="69.0" layoutY="329.0" />
+                                    <Button fx:id="btnClearForm1" layoutX="125.0" layoutY="388.0" mnemonicParsing="false" onAction="#handleClear1Action" prefHeight="25.0" prefWidth="126.0" text="Clear Form" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="427.0" prefWidth="654.0">
+                                 <children>
+                                    <VBox prefHeight="322.0" prefWidth="655.0" style="-fx-background-color: ;">
+                                       <children>
+                                          <AnchorPane prefHeight="322.0" prefWidth="680.0" style="-fx-background-color: d62828;">
+                                             <children>
+                                                <TableView fx:id="tblPeminjaman1" layoutX="7.0" layoutY="8.0" prefHeight="305.0" prefWidth="666.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colidpeminjaman1" prefWidth="99.0" text="ID Peminjaman" />
+                                                      <TableColumn fx:id="coltanggal1" prefWidth="98.0" text="Tanggal" />
+                                                      <TableColumn fx:id="colnoplat1" prefWidth="75.0" text="No. Plat" />
+                                                      <TableColumn fx:id="colnama1" prefWidth="124.0" text="Nama" />
+                                                      <TableColumn fx:id="collama1" prefWidth="79.0" text="Lama ( Hari )" />
+                                                      <TableColumn fx:id="colbiaya1" prefWidth="88.0" text="Biaya" />
+                                                      <TableColumn fx:id="colbidanginstansi" prefWidth="95.0" text="Bidang Instansi" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                    <Button fx:id="btnReloadData1" layoutX="239.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleReload1Action" prefHeight="25.0" prefWidth="200.0" text="Reload Data" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="788.0" layoutY="6.0" text="DB Status :" />
+      <Label fx:id="lblDBStatus" layoutX="888.0" layoutY="5.0" />
+   </children>
+</AnchorPane>
