@@ -48,29 +48,6 @@ classDiagram
     }
 ```
 
-classDiagram
-    Peminjaman <|-- Individu
-    Peminjaman <|-- Instansi
-
-    class Peminjaman{
-        <<abstract>>
-        #int IdPeminjaman
-        #String tanggal
-        #String NomorKendaraan
-        #String NamaPenyewa
-        #int LamaPeminjaman
-        #int BiayaPeminjaman
-        +int nextIdPeminjaman()
-    }
-
-    class Individu{
-        -String Pekerjaan
-    }
-
-    class Instansi{
-        -String BidangInstansi
-    }
-
 ### ER Diagram
 ```mermaid
 erDiagram
@@ -91,24 +68,6 @@ erDiagram
         String BidangInstansi
     }
 ```
-
-erDiagram
-    Peminjaman ||..|| Individu : is
-    Peminjaman ||..|| Instansi : is
-    Peminjaman{
-        int IdPeminjaman
-        String tanggal
-        String NomorKendaraan
-        String NamaPenyewa
-        int LamaPeminjaman
-        int BiayaPeminjaman
-    }
-    Individu{
-        String Pekerjaan
-    }
-    Instansi{
-        String BidangInstansi
-    }
 
 ### Design Class Diagram for JavaFX and Database
 ```mermaid
@@ -165,56 +124,3 @@ classDiagram
         createTable()
     }
 ```
-
-classDiagram
-    Peminjaman <|-- Individu
-    Peminjaman <|-- Instansi
-    Peminjaman o-- PeminjamanDataModel : Data Modeling
-    PeminjamanDataModel <-- PeminjamanController : Data Control
-    PeminjamanDataModel --> DBHelper : DB Connection
-    PeminjamanController <.. FormPeminjaman : Form Control
-
-    class Peminjaman{
-        <<abstract>>
-        #int IdPeminjaman
-        #String tanggal
-        #String NomorKendaraan
-        #String NamaPenyewa
-        #int LamaPeminjaman
-        #int BiayaPeminjaman
-        +int nextIdPeminjaman()
-    }
-
-    class Individu{
-        -String Pekerjaan
-    }
-
-    class Instansi{
-        -String BidangInstansi
-    }
-
-    class PeminjamanDataModel{
-        Connection conn
-        addPeminjaman()
-        getIndividu()
-        getInstansi()
-        NextIDPeminjaman()
-    }
-
-    class PeminjamanController{
-        initialize()
-        handleButtonAddPeminjamanIndividu()
-        handelButtonAddPeminjamanInstansi()
-        loadDataIndividu()
-        loadDataInstansi()
-        handleClearForm()
-    }
-
-    class DBHelper{
-        String Username
-        String Password
-        String DB
-        getConnection()
-        getConnection(String driver)
-        createTable()
-    }
