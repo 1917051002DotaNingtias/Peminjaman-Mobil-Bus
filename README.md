@@ -81,21 +81,21 @@ classDiagram
 
     class Peminjaman{
         <<abstract>>
-        #int IdPeminjaman
-        #String tanggal
-        #String NomorKendaraan
-        #String NamaPenyewa
-        #int LamaPeminjaman
-        #int BiayaPeminjaman
-        +int nextIdPeminjaman()
+        #IntegerProperty IdPeminjaman
+        #StringProperty tanggal
+        #StringProperty NomorKendaraan
+        #StringProperty NamaPenyewa
+        #IntegerProperty LamaPeminjaman
+        #IntegerProperty BiayaPeminjaman
+        +IntegerProperty nextIdPeminjaman()
     }
 
     class Individu{
-        -String Pekerjaan
+        -StringProperty Pekerjaan
     }
 
     class Instansi{
-        -String BidangInstansi
+        -StringProperty BidangInstansi
     }
 
     class PeminjamanDataModel{
@@ -116,9 +116,6 @@ classDiagram
     }
 
     class DBHelper{
-        String Username
-        String Password
-        String DB
         getConnection()
         getConnection(String driver)
         createTable()
